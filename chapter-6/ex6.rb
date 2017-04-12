@@ -31,12 +31,16 @@ while goodbye < 3
 end
 
 # Leap Year Calcluator
+puts "Enter a starting year:"
+start_year = gets.chomp.to_i
+puts "Enter an ending year:"
+end_year = gets.chomp.to_i
 
-## Ask for a starting Year
-## Ask for an ending year
-
-## Output all of the leap years within that range
-
-## if year % 4 == 0 then it is a leap year
-## However, if year % 100 == 0 then it's not a leap year
-## UNLESS year % 400 == 0, then it IS a leap year.
+(start_year..end_year).each do |year|
+  puts case
+  when year % 400 == 0 then puts year
+  when year % 100 == 0 then next
+  when year % 4 == 0 then year
+  else next
+  end
+end
